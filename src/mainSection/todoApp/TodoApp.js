@@ -12,13 +12,12 @@ import PropTypes from "prop-types";
 const TodoApp = (props) => {
 
     const searchCheckDone = (props.todoList.filter(todoList => todoList.check === true).length);
-
     return (
         <div>
             <div className="todoapp">
                 <div className="flex todoapp__frame">
                     {props.todoList.length > 0 &&
-                        <SelectAll todoList={props.todoList} />
+                        <input onClick={() => SelectAll(props.todoList)} type="checkbox" className="todoapp__select-all" />
                     }
                     <InputFields />
                 </div>
@@ -27,13 +26,13 @@ const TodoApp = (props) => {
                     <footer className="flex todoapp__footer">
                         <strong style={{ width: 75 + 'px' }} className="strong" value="0" data-counter>{(props.todoList.filter(todoList => todoList.check === false)).length} item left  </strong>
                         <div>
-                            <input onClick={() => BtnAll(props.todoList)} value="All" type="button" className="todoapp__btn todoapp__btn_mod transition-back-border" />
-                            <input onClick={() => BtnActive(props.todoList)} value="Active" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
-                            <input onClick={() => BtnCompleted(props.todoList)} value="Completed" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
+                            <input onClick={() => BtnAll()} value="All" type="button" className="todoapp__btn todoapp__btn_mod transition-back-border" />
+                            <input onClick={() => BtnActive()} value="Active" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
+                            <input onClick={() => BtnCompleted()} value="Completed" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
                         </div>
                         <div style={{ width: 120 + 'px' }}>
                             {searchCheckDone > 0 &&
-                            <input onClick={() => BtnClerCompleted(props.todoList, props.searchCheckDone)} value="clear completed" type="button" className="todoapp__btn todoapp__btn_clear-completed" />
+                            <input onClick={() => BtnClerCompleted(props.todoList,props.searchCheckDone)} value="clear completed" type="button" className="todoapp__btn todoapp__btn_clear-completed" />
                             }
                         </div>
                     </footer>

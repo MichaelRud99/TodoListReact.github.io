@@ -1,10 +1,9 @@
 import React from "react";
 import BtnChoose from "./BtnChoose";
 
-const BtnCompleted=(todoList)=>{
+const BtnCompleted=()=>{
     BtnChoose(2, 1, 0);
     localStorage.setItem("btnCompleted", 1);
     localStorage.removeItem("btnActive");
-    localStorage.setItem("countCompleted",JSON.stringify(todoList.length));
 }
 export default BtnCompleted
