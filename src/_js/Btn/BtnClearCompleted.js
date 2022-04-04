@@ -1,14 +1,14 @@
 import React from "react";
 
-const BtnClerCompleted = (props) => {
+const BtnClerCompleted = (todoList,searchCheckDone) => {
     const cloneTodList = JSON.parse(localStorage.getItem("todo"));
-    if (props.searchCheckDone === props.todoList.length) { localStorage.removeItem("todo"); }
+    if (searchCheckDone === todoList.length) { localStorage.removeItem("todo"); }
     cloneTodList.forEach((obj, c) => {
-        let indexCheck = props.todoList.findIndex(todoList => todoList.check === true);
+        let indexCheck = todoList.findIndex(todoList => todoList.check === true);
         if (indexCheck === -1) return;
-        props.todoList.splice(indexCheck, 1);
+        todoList.splice(indexCheck, 1);
     })
-    localStorage.setItem('todo', JSON.stringify(props.todoList));
+    localStorage.setItem('todo', JSON.stringify(todoList));
 }
 
 export default BtnClerCompleted

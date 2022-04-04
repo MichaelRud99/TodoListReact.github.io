@@ -1,11 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SelectAll = (props) => {
-
-  let todoList = props.todoList;
-
-  const selectAll = () => {
+const SelectAll = (todoList) => {
     let c = 0;
     c = (todoList.filter(todoList => todoList.check === true)).length;
     if (c === todoList.length) {
@@ -14,18 +10,13 @@ const SelectAll = (props) => {
       })
     }
     else {
-      todoList.forEach((value, c) => {
+      todoList.forEach((value, c) => {  
         todoList[c].check = true;
       })
 
     }
     c = 0;
     localStorage.setItem('todo', JSON.stringify(todoList));
-  }
-
-  return (
-    <input id="btnSelectAll" type="checkbox" className="todoapp__select-all" onClick={selectAll} />
-  );
 }
 
 SelectAll.propTypes={

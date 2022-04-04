@@ -2,7 +2,7 @@ import React from "react";
 
 import BtnChoose from "./BtnChoose";
 
-const BtnAll = (todoList) => {
+const BtnAll = () => {
 
     BtnChoose(0, 1, 2);
     localStorage.removeItem("btnActive");
