@@ -10,8 +10,9 @@ class PatternList extends React.Component {
     this.handleStateTrue = this.handleStateTrue.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleBlur=this.handleBlur.bind(this);
+    this.handleKeyUp =  this.handleKeyUp.bind(this);
     this.state = { isedit: false, value: this.props.out }
-
   }
 
   handleStateTrue = (props) => {
@@ -21,14 +22,7 @@ class PatternList extends React.Component {
   handleEdit(event, props) {
     event.preventDefault();
     this.setState({ value: event.target.value });
-    const ul = document.querySelector("ul");
-    const input = ul.querySelector(".edit");
-
-    input.onblur = () => {
-      this.handleSubmit(event);
-    }
   };
-
 
   handleSubmit(event) {
     event.preventDefault();
@@ -38,8 +32,17 @@ class PatternList extends React.Component {
     this.setState({ isedit: false });
   }
 
-  render() {
+  handleBlur(event){
+    this.handleSubmit(event);
+  }
 
+  handleKeyUp(event){
+    if(event.code ==="Enter" || event.code ==="Escape"){
+      this.handleSubmit(event);
+    }
+  }
+
+  render() {
 
     return (
       <li className="list__li" id={this.props.index} >
@@ -51,9 +54,8 @@ class PatternList extends React.Component {
             <div className="list__div_destroy transition-position">x</div>
             <input type="checkbox" onChange={() => DestroyLi(this.props.index, this.props.todoList)} className="list__destroy"></input>
           </div>
-          : <input type="text" autoFocus onChange={this.handleEdit} value={this.state.value} className="edit" />
+          : <input type="text" autoFocus onChange={this.handleEdit} onKeyDownCapture={this.handleKeyUp} onBlurCapture={this.handleBlur} value={this.state.value} className="edit" />
         }
-
 
       </li >
     )
