@@ -7,6 +7,7 @@ import BtnClerCompleted from "../../_js/Btn/BtnClearCompleted";
 import OutPatternList from "../../_js/PatternList/OutPatternList.js";
 import BtnAll from "../../_js/Btn/BtnAll";
 import BtnCompleted from "../../_js/Btn/BtnCompleted";
+import FooterBtn from "../../_js/Btn/FooterBtn";
 import PropTypes from "prop-types";
 
 const TodoApp =  ({ todoList, filetrCheckTrue, filetrCheckFalse})  => {
@@ -25,11 +26,9 @@ const TodoApp =  ({ todoList, filetrCheckTrue, filetrCheckFalse})  => {
                 {(todoList).length > 0 &&
                     <footer className="flex todoapp__footer">
                         <strong className="strong" value="0" data-counter>{(todoList.filter(todoList => todoList.check === false)).length} item left  </strong>
-                        <div  className="footer__btn">
-                            <input onClick={BtnAll} value="All" type="button" className="todoapp__btn todoapp__btn_mod transition-back-border" />
-                            <input onClick={BtnActive} value="Active" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
-                            <input onClick={BtnCompleted} value="Completed" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
-                        </div>
+
+                        <FooterBtn/>
+
                         <div>
                             {searchCheckDone > 0 &&
                             <input onClick={() => BtnClerCompleted(todoList,searchCheckDone)} value="clear completed" type="button" className="todoapp__btn todoapp__btn_clear-completed" />

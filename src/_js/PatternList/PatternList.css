@@ -46,9 +46,7 @@
 
 .list__label {
     width: 100%;
-    padding: 15px;
-    padding-left: 0px;
-    word-break: break-all;
+    padding: 15px 0px;
 }
 
 .list__destroy {

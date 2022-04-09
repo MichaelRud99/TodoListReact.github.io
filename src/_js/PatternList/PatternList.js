@@ -5,14 +5,20 @@ import SelectItem from "../SelectItem";
 import DestroyLi from "../DestroyLi";
 
 class PatternList extends React.Component {
-  constructor(props,event) {
-    super(props)
+  constructor(props, event) {
+    super(props);
+    this.handleStateCompleted = this.handleStateCompleted.bind(this);
     this.handleStateTrue = this.handleStateTrue.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleBlur=this.handleBlur.bind(this);
-    this.handleKeyUp =  this.handleKeyUp.bind(this);
-    this.state = { isedit: false, value: this.props.out }
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.state = { isedit: false, value: this.props.out, iscompleted: false }
+  }
+
+  handleStateCompleted = () => {
+    this.setState({ iscompleted: !this.state.iscompleted });
+    SelectItem(this.props.index)
   }
 
   handleStateTrue = () => {
@@ -32,12 +38,12 @@ class PatternList extends React.Component {
     this.setState({ isedit: false });
   }
 
-  handleBlur(event){
+  handleBlur(event) {
     this.handleSubmit(event);
   }
 
-  handleKeyUp(event){
-    if(event.code ==="Enter" || event.code ==="Escape"){
+  handleKeyUp(event) {
+    if (event.code === "Enter" || event.code === "Escape") {
       this.handleSubmit(event);
     }
   }
@@ -47,14 +53,29 @@ class PatternList extends React.Component {
     return (
       <li className="list__li" id={this.props.index} >
         {this.state.isedit === false ?
+
           < div className="flex" >
-            <input onClick={() => SelectItem(this.props.index, this.props.filetrCheckFalse, this.props.filetrCheckTrue)} type="checkbox" className="list__li_checkbox"></input>
-            <span className="list__li_btn transition-position"></span>
-            <label onDoubleClick={() => this.handleStateTrue()} className="list__label transition-color">{this.props.out}</label>
+            <input onClick={this.handleStateCompleted}type="checkbox" className="list__li_checkbox" />
+
+            {(this.state.iscompleted === true || this.props.todoList[this.props.index].check === true) ?
+              <>
+                <span className="list__li_btn list__span_mod transition-position"></span>
+                <label onDoubleClick={this.handleStateTrue} className="list__label list__label_mod transition-color">{this.props.out}</label>
+              </>
+              :<>
+                <span className="list__li_btn transition-position"></span>
+                <label onDoubleClick={this.handleStateTrue} className="list__label transition-color">{this.props.out}</label>
+              </>
+            }
+
             <div className="list__div_destroy transition-position">x</div>
             <input type="checkbox" onChange={() => DestroyLi(this.props.index, this.props.todoList)} className="list__destroy"></input>
+
           </div>
-          : <input type="text" autoFocus onChange={this.handleEdit} onKeyDownCapture={this.handleKeyUp} onBlurCapture={this.handleBlur} value={this.state.value} className="edit" />
+
+          : <input type="text" autoFocus onChange={this.handleEdit} onKeyDownCapture={this.handleKeyUp}
+            onBlurCapture={this.handleBlur} value={this.state.value} className="edit" />
+
         }
 
       </li >
