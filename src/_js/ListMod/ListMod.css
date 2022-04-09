@@ -1,5 +1,5 @@
 .list__label_mod {
-    color: #d9d9d9;
+    color: var(--completed--task--color);
     text-decoration: line-through;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .todoapp__btn_mod {
-    color: #FFFFFFD6;
-    background-color: #EFA501;
-    border: 1px solid rgba(175, 47, 47, 0.2);
+    color: var(--white);
+    background-color: var(--btn--footer--click);
+    border: 1px solid var(--btn--footer--border);
 }

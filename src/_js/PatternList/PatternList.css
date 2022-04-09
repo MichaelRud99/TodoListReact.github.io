@@ -7,7 +7,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid var(--list--border);
 }
 
 .list__li_checkbox {
@@ -38,7 +38,7 @@
     display: inline-block;
     width: 28px;
     height: 28px;
-    border: 2px solid #4d4d4d;
+    border: 2px solid var(--text--color--grey);
     border-radius: 100%;
     margin: auto auto;
 
@@ -81,8 +81,8 @@
 
 .list__li:hover .list__div_destroy {
     visibility: visible;
-    color: rgb(43, 43, 43);
-    background-color: white;
+    color: var(--black);
+    background-color: var(--white);
     border-color: transparent;
     cursor: pointer;
 }
@@ -114,12 +114,12 @@
     border: 1px;
     color: inherit;
     cursor: pointer;
-    color: #4d4d4d;
+    color: var(--text--color--grey);
     font-family: 'Times New Roman', Times, serif;
 }
 
 .edit:focus {
     outline: none;
-    border: 2px solid bisque;
+    border: 2px solid var(--list--edit--focus);
 }
 

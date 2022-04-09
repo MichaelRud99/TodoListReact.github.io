@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "./CssVariable.css"
 import './index.css';
 import Aside from './Aside/Aside';
 import Header from './mainSection/header/Header';
