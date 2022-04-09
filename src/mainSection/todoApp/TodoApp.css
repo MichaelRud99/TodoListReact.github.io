@@ -78,13 +78,14 @@
     padding: 0%;
 }
 
-.todoapp__footer {
-    justify-content: space-between;
-}
-
 .strong {
+    width: 70px;
     margin: 5px;
     padding: 0%;
+}
+.footer__btn{
+    margin-left: 82px;
+    margin-right: 82px;
 }
 
 .todoapp__btn {

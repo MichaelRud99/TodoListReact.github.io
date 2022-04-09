@@ -24,13 +24,13 @@ const TodoApp = (props) => {
                 <OutPatternList todoList={props.todoList} filetrCheckFalse={props.filetrCheckFalse} filetrCheckTrue={props.filetrCheckTrue} />
                 {(props.todoList).length > 0 &&
                     <footer className="flex todoapp__footer">
-                        <strong style={{ width: 75 + 'px' }} className="strong" value="0" data-counter>{(props.todoList.filter(todoList => todoList.check === false)).length} item left  </strong>
-                        <div>
+                        <strong className="strong" value="0" data-counter>{(props.todoList.filter(todoList => todoList.check === false)).length} item left  </strong>
+                        <div  className="footer__btn">
                             <input onClick={() => BtnAll()} value="All" type="button" className="todoapp__btn todoapp__btn_mod transition-back-border" />
                             <input onClick={() => BtnActive()} value="Active" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
                             <input onClick={() => BtnCompleted()} value="Completed" type="button" className="todoapp__btn todoapp__btn_hover transition-back-border" />
                         </div>
-                        <div style={{ width: 120 + 'px' }}>
+                        <div>
                             {searchCheckDone > 0 &&
                             <input onClick={() => BtnClerCompleted(props.todoList,props.searchCheckDone)} value="clear completed" type="button" className="todoapp__btn todoapp__btn_clear-completed" />
                             }
