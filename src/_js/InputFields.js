@@ -16,7 +16,7 @@ class NameForm extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  handleSubmit(event, props) {
+  handleSubmit(event) {
     event.preventDefault();
     let input = this.state.value;
     let todoList = PatternTodoList("todo");

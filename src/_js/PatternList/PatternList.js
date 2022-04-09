@@ -15,11 +15,11 @@ class PatternList extends React.Component {
     this.state = { isedit: false, value: this.props.out }
   }
 
-  handleStateTrue = (props) => {
+  handleStateTrue = () => {
     this.setState({ isedit: true });
   }
 
-  handleEdit(event, props) {
+  handleEdit(event) {
     event.preventDefault();
     this.setState({ value: event.target.value });
   };
