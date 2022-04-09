@@ -18,17 +18,6 @@ const main = () => {
   const filetrCheckTrue = todoList.filter(todoList => todoList.check === true);
   const filetrCheckFalse = todoList.filter(todoList => todoList.check === false);
 
-  todoList.forEach((value, c) => {
-    if (todoList[c].check === true) { addListMod(c); }
-    else { removeListMod(c); }
-  });
-  if (localStorage.getItem("btnActive") != null) {
-    filetrCheckFalse.map((value, count) => { removeListMod(count); })
-  }
-  else if (localStorage.getItem("btnCompleted") != null) {
-    filetrCheckTrue.map((value, count) => { addListMod(count); })
-  }
-
   ReactDOM.render(
 
     <React.StrictMode>
@@ -46,7 +35,8 @@ const main = () => {
 
   );
 }
-setInterval(main, 100);
+main();
+/* setInterval(main, 100); */
 
 localStorage.removeItem("btnActive");
 localStorage.removeItem("btnCompleted");
