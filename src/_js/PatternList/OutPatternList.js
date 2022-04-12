@@ -1,7 +1,7 @@
 import React from "react";
 import "./PatternList.js";
-import PatternList from "./PatternList.js";
-import PatternTodoList from "./patternTodoList.js";
+import PatternList from "./PatternList";
+import PatternTodoList from "./PatternTodoList";
 
 const OutPatternList = ({ state, onUpdateTodoList, onStateTrue, onEditValue }) => {
 

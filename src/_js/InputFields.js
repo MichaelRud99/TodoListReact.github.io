@@ -1,5 +1,5 @@
 import React from "react";
-import PatternTodoList from "./PatternList/patternTodoList";
+import PatternTodoList from "./PatternList/PatternTodoList";
 
 class NameForm extends React.Component {
 

@@ -1,5 +1,5 @@
 .todoapp {
-    width: 550px;
+    width: 570px;
     background: var(--white);
     margin: 50px 0 40px 0;
     position: relative;
@@ -94,6 +94,7 @@
 .todoapp__btn {
     cursor: pointer;
     margin: 3px;
+    margin-left: auto;
     padding: 3px 7px;
     color: var(--grey);
     background-color: var(--white);

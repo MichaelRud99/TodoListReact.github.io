@@ -4,7 +4,7 @@ import SelectAll from "../../_js/SelectAll.js";
 import BtnFooter from "../../_js/Btn/BtnFooter";
 import InputFields from "../../_js/InputFields.js";
 import BtnClearCompleted from "../../_js/Btn/BtnClearCompleted";
-import patternTodoList from "../../_js/PatternList/patternTodoList";
+import patternTodoList from "../../_js/PatternList/PatternTodoList";
 import OutPatternList from "../../_js/PatternList/OutPatternList.js";
 
 class TodoApp extends React.Component {
