@@ -3,7 +3,7 @@
     background: var(--white);
     margin: 50px 0 40px 0;
     position: relative;
-    box-shadow: 0 2px 4px 0 var(--todoapp--box--shadow--light), 0 25px 50px 0 var(--todoapp--box--shadow--dark);
+    box-shadow: 0 2px 4px 0 var(--todoapp-box-shadow-light), 0 25px 50px 0 var(--todoapp-box-shadow-dark);
 }
 
 .todoapp__frame {
@@ -40,10 +40,12 @@
 .todoapp__select-all:hover {
     font-size: 35px;
     font-weight: 700;
-    color: var(--btn--footer--click);
+    color: var(--btn-footer-click);
 }
 
-.todoapp__formInput{width: 100%;}
+.todoapp__formInput {
+    width: 100%;
+}
 
 .todoapp__new-todo {
     font-style: italic;
@@ -69,7 +71,7 @@
     opacity: 1;
     outline: none;
     color: var(--new--todo-focu);
-    background: linear-gradient(to right, var(--white), var(--new--todo--back--focus), var(--btn--footer--click));
+    background: linear-gradient(to right, var(--white), var(--new-todo-back-focus), var(--btn-footer-click));
 }
 
 .list {
@@ -83,9 +85,10 @@
     margin: 5px;
     padding: 0%;
 }
-.footer__btn{
-    margin-left: 82px;
-    margin-right: 82px;
+
+.footer__btn {
+    margin-left: 90px;
+    margin-right: 90px;
 }
 
 .todoapp__btn {
@@ -111,11 +114,11 @@
 
 .todoapp__btn_mod {
     color: var(--white);
-    background-color: var(--btn--footer--click);
-    border: 1px solid var(--btn--footer--border);
+    background-color: var(--btn-footer-click);
+    border: 1px solid var(--btn-footer-border);
 }
 
 .todoapp__btn_hover:hover {
-    background-color: var(--btn--footer--hover);
-    border: 1px solid var(--btn--footer--click);
+    background-color: var(--btn-footerhover);
+    border: 1px solid var(--btn-footer-click);
 }

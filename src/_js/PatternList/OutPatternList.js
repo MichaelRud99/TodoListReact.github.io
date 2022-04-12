@@ -1,34 +1,35 @@
 import React from "react";
 import "./PatternList.js";
 import PatternList from "./PatternList.js";
+import PatternTodoList from "./patternTodoList.js";
 
-const OutPatternList = ({todoList,filetrCheckFalse,filetrCheckTrue}) => {
+const OutPatternList = ({ state, onUpdateTodoList, onStateTrue, onEditValue }) => {
 
+    const todoList = PatternTodoList("todo");
     const indexTodo = todoList.map(todoList => todoList.todo);
-    const btnCompleted = localStorage.getItem("btnCompleted");
-    const btnActive = localStorage.getItem("btnActive");
+    const filetrCheckTrue = todoList.filter(todoList => todoList.check === true);
+    const filetrCheckFalse = todoList.filter(todoList => todoList.check === false);
 
     return (
 
         <ul id="list" className="list" >
 
-            {(btnCompleted === null && btnActive === null) &&
+            {state.isall === true &&
                 indexTodo.map((value, count) => {
-                    return (<PatternList key={count} index={count} out={value} todoList={todoList} 
-                            filetrCheckFalse={filetrCheckFalse} filetrCheckTrue={filetrCheckTrue}/>)
+                    return (<PatternList key={count} index={count} out={value}
+                        state={state} onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
                 })
             }
-
-            {btnCompleted != null &&
-                filetrCheckTrue.map((value, count) => {
-                    return (<PatternList key={count} index={count} out={value.todo} todoList={todoList}  
-                            filetrCheckFalse={filetrCheckFalse} filetrCheckTrue={filetrCheckTrue}/>)
-                })
-            }
-            {btnActive != null &&
+            {state.isactive === true &&
                 filetrCheckFalse.map((value, count) => {
-                    return (<PatternList key={count} index={count} out={value.todo} todoList={todoList} 
-                            filetrCheckFalse={filetrCheckFalse} filetrCheckTrue={filetrCheckTrue}/>)
+                    return (<PatternList key={count} index={count} out={value.todo} state={state}
+                        onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
+                })
+            }
+            {state.iscompleted === true &&
+                filetrCheckTrue.map((value, count) => {
+                    return (<PatternList key={count} index={count} out={value.todo} state={state}
+                        onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
                 })
             }
 

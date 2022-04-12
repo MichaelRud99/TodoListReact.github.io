@@ -7,7 +7,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border-bottom: 1px solid var(--list--border);
+    border-bottom: 1px solid var(--list-border);
 }
 
 .list__li_checkbox {
@@ -38,7 +38,7 @@
     display: inline-block;
     width: 28px;
     height: 28px;
-    border: 2px solid var(--text--color--grey);
+    border: 2px solid var(--text-color-grey);
     border-radius: 100%;
     margin: auto auto;
 
@@ -118,6 +118,6 @@
 
 .edit:focus {
     outline: none;
-    border: 2px solid var(--list--edit--focus);
+    border: 2px solid var(--list-edit-focus);
 }
 

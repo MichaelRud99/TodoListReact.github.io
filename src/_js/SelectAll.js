@@ -1,8 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const SelectAll = (todoList) => {
+class SelectAll extends React.Component{
+  constructor(props){
+    super(props);
+    this.selectAll=this.selectAll.bind(this);
+
+  }
+
+  selectAll(){
     let c = 0;
+    const todoList=this.props.state.todoList;
     c = (todoList.filter(todoList => todoList.check === true)).length;
     if (c === todoList.length) {
       todoList.forEach((value, c) => {
@@ -17,10 +24,14 @@ const SelectAll = (todoList) => {
     }
     c = 0;
     localStorage.setItem('todo', JSON.stringify(todoList));
-}
-
-SelectAll.propTypes={
-  todoList:PropTypes.arrayOf(PropTypes.object).isRequired
+    this.props.onSubmit();
   }
+
+  render(){
+    return(
+      <input onClick={this.selectAll} type="checkbox" className="todoapp__select-all" />
+    )
+  }
+}
 
 export default SelectAll

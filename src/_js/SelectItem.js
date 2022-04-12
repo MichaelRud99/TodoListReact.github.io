@@ -1,31 +1,23 @@
-import PatternTodoList from "./PatternList/PatternTodoList";
+import React from "react";
 
-const SelectItem = (index) => {
-  const todoList = PatternTodoList("todo");
-  todoList[index].check = !todoList[index].check;
-  localStorage.setItem('todo', JSON.stringify(todoList));
+class SelectItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.selectItem = this.selectItem.bind(this);
+  }
+
+  selectItem() {
+    const todoList = this.props.state.todoList;
+    todoList[this.props.index].check = !todoList[this.props.index].check;
+    localStorage.setItem('todo', JSON.stringify(todoList));
+    this.props.onUpdateTodoList();
+  }
+
+  render() {
+    return (
+      <input onClick={this.selectItem} type="checkbox" className="list__li_checkbox" />
+    );
+  }
 }
 
 export default SelectItem
-
-
-/* if (localStorage.getItem("btnActive") !== null) {
-  filetrCheckFalse[index].check = true;
-
-  todoList.forEach((value, c) => {
-    if (filetrCheckFalse[index].todo === todoList[c].todo) {
-      todoList[c].check = filetrCheckFalse[index].check;
-    }
-  });
-}
-else if (localStorage.getItem("btnCompleted") !== null) {
-  filetrCheckTrue[index].check = false;
-
-  todoList.forEach((value, c) => {
-    if (filetrCheckTrue[index].todo === todoList[c].todo) {
-      todoList[c].check = filetrCheckTrue[index].check;
-    }
-  });
-}
-else {todoList[index].check = !todoList[index].check;} */
-

@@ -1,12 +1,10 @@
-
 body {
-/*   font-family:"Roboto"; */
   font-weight: normal;
   font-size: 14px;
   line-height: 27px;
-  color: var(--text--color--grey);
+  color: var(--text-color-grey);
   font-weight: 300;
-  background-color: var(--white--almost);
+  background-color: var(--white-almost);
 }
 
 section{
