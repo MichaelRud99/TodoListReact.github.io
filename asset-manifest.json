@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/monsegard2.github.io/static/css/main.4a4d609f.css",
-    "main.js": "/monsegard2.github.io/static/js/main.5f302fb0.js",
+    "main.css": "/monsegard2.github.io/static/css/main.fbd5a926.css",
+    "main.js": "/monsegard2.github.io/static/js/main.09ce0b5d.js",
     "index.html": "/monsegard2.github.io/index.html",
     "static/media/Rectangl-36-Stroke.svg": "/monsegard2.github.io/static/media/Rectangl-36-Stroke.360d1e53b93d96176d92.svg",
-    "main.4a4d609f.css.map": "/monsegard2.github.io/static/css/main.4a4d609f.css.map",
-    "main.5f302fb0.js.map": "/monsegard2.github.io/static/js/main.5f302fb0.js.map"
+    "main.fbd5a926.css.map": "/monsegard2.github.io/static/css/main.fbd5a926.css.map",
+    "main.09ce0b5d.js.map": "/monsegard2.github.io/static/js/main.09ce0b5d.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a4d609f.css",
-    "static/js/main.5f302fb0.js"
+    "static/css/main.fbd5a926.css",
+    "static/js/main.09ce0b5d.js"
   ]
 }
