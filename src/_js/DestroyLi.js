@@ -6,18 +6,17 @@ class DestroyLi extends React.Component {
         this.destroyLi = this.destroyLi.bind(this);
     }
 
-    destroyLi() {
-        const todoList = this.props.state.todoList;
-        todoList.splice(this.props.index, 1);
+    destroyLi({todoList,index,onUpdateTodoList}=this.props) {
+        todoList.splice(index, 1);
         localStorage.setItem('todo', JSON.stringify(todoList));
-        this.props.onUpdateTodoList();
+        onUpdateTodoList();
     }
 
     render() {
         return (
-            <input type="checkbox" onClick={this.destroyLi} className="list__destroy"></input>
+            <input type="checkbox" onClick={()=>this.destroyLi()} className="list__destroy"></input>
         );
     }
 
 }
-export default DestroyLi
+export default DestroyLi;

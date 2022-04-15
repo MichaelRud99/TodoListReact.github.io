@@ -21,6 +21,11 @@ aside {
     font-size: 14px;
     white-space: pre-line;
 }
+
+aside div{
+    text-align: right;
+}
+
 .link{
     font-weight: normal;
     text-decoration: none;

@@ -7,21 +7,18 @@ import Header from './mainSection/header/Header';
 import TodoApp from './mainSection/todoApp/TodoApp';
 import Footer from "./mainSection/footer/Footer";
 
-const root = document.getElementById('root');
+ReactDOM.render(
 
-  ReactDOM.render(
-
-    <React.StrictMode>
+  <React.StrictMode>
+    <section className="flex">
       <Aside />
       <section>
         <Header />
         <TodoApp />
         <Footer />
       </section>
+    </section>
+  </React.StrictMode>,
 
-    </React.StrictMode>,
-
-    root,
-    root.classList.add("flex"),
-
-  );
+document.getElementById('root')
+);

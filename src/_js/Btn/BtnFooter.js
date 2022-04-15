@@ -28,8 +28,8 @@ const FooterBtn = ({ state, onChangeAll, onChangeActive, onChangeCompleted }) =>
                 </div>
             }
         </>
-    )
+    );
 
 }
 
-export default FooterBtn
+export default FooterBtn;

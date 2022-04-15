@@ -1,13 +1,6 @@
 import React from "react";
 import "./Aside.css";
 
-const styles ={
-
-  div:{
-    textAlign:"right"
-  }
-}
-
 const Aside = () => {
   return (
     <aside>
@@ -24,7 +17,7 @@ const Aside = () => {
           js or Apache CouchDB.
         </p>
       </blockquote>
-      <div style={styles.div}>
+      <div>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" className="link">JavaScript</a>
       </div>
       <hr className="aside__hr"></hr>

@@ -1,5 +1,4 @@
 import React from "react";
-import PatternTodoList from "./PatternList/PatternTodoList";
 
 class NameForm extends React.Component {
 
@@ -15,23 +14,21 @@ class NameForm extends React.Component {
     this.props.onChangeValue(event.target.value);
   }
 
-  handleSubmit(event) {
+  handleSubmit(event,{value,todoList,onSubmit,onUpdateTodoList}=this.props) {
     event.preventDefault();
-    let input = this.props.state;
-    let todoList = PatternTodoList("todo");
     const re = /[\s]{1}[\s]*$/;
-    let valid = re.test(input);
+    let valid = re.test(value);
 
-    if (input) {
+    if (value) {
       if (valid === false) {
         let tmp = {};
-        tmp.todo = input;
+        tmp.todo = value;
         tmp.check = false;
         tmp.edit = false;
         todoList[todoList.length] = tmp;
         localStorage.setItem('todo', JSON.stringify(todoList));
-        this.props.onSubmit();
-        this.props.onUpdateTodoList();
+        onSubmit();
+        onUpdateTodoList();
       }
     }
   }
@@ -39,7 +36,7 @@ class NameForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="todoapp__formInput">
-        <input type="text" value={this.props.state} onChange={this.handleChange} placeholder="What needs to be done?" className="todoapp__new-todo" />
+        <input type="text" value={this.props.value} onChange={this.handleChange} placeholder="What needs to be done?" className="todoapp__new-todo" />
       </form>
     );
   }

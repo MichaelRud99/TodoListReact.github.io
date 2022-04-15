@@ -35,4 +35,4 @@ class BtnClearCompleted extends React.Component {
     }
 }
 
-export default BtnClearCompleted
+export default BtnClearCompleted;

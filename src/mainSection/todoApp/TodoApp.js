@@ -4,12 +4,12 @@ import SelectAll from "../../_js/SelectAll.js";
 import BtnFooter from "../../_js/Btn/BtnFooter";
 import InputFields from "../../_js/InputFields.js";
 import BtnClearCompleted from "../../_js/Btn/BtnClearCompleted";
-import patternTodoList from "../../_js/PatternList/PatternTodoList";
+import patternTodoList from "../../_js/PatternList/patternTodoList";
 import OutPatternList from "../../_js/PatternList/OutPatternList.js";
 
 class TodoApp extends React.Component {
 
-    constructor(props, event) {
+    constructor(props) {
         super(props);
         
         this.handleChangeAll = this.handleChangeAll.bind(this);
@@ -68,9 +68,9 @@ class TodoApp extends React.Component {
                     <div className="flex todoapp__frame">
 
                         {this.state.todoList.length > 0 &&
-                            <SelectAll state={this.state} onSubmit={this.handleUpdateTodoList} />}
+                            <SelectAll todoList={this.state.todoList} onUpdateTodoList={this.handleUpdateTodoList} />}
 
-                        <InputFields state={this.state.isvalue} onChangeValue={this.handleChang} onSubmit={this.handleSubmit} onUpdateTodoList={this.handleUpdateTodoList}/>
+                        <InputFields value={this.state.isvalue} todoList={this.state.todoList} onChangeValue={this.handleChang} onSubmit={this.handleSubmit} onUpdateTodoList={this.handleUpdateTodoList}/>
                     </div>
 
                     <OutPatternList state={this.state} onUpdateTodoList={this.handleUpdateTodoList} onStateTrue={this.handleStateTrue} onEditValue={this.handleEdit} />

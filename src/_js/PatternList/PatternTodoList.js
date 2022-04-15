@@ -7,4 +7,4 @@ const patternTodoList = (todo) => {
     }
     return todoList;
 }
-export default patternTodoList
+export default patternTodoList;

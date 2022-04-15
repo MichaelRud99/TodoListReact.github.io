@@ -6,18 +6,18 @@ class SelectItem extends React.Component {
     this.selectItem = this.selectItem.bind(this);
   }
 
-  selectItem() {
-    const todoList = this.props.state.todoList;
-    todoList[this.props.index].check = !todoList[this.props.index].check;
+  selectItem({index,todoList,onUpdateTodoList}=this.props) {
+
+    todoList[index].check = !todoList[this.props.index].check;
     localStorage.setItem('todo', JSON.stringify(todoList));
-    this.props.onUpdateTodoList();
+    onUpdateTodoList();
   }
 
   render() {
     return (
-      <input onClick={this.selectItem} type="checkbox" className="list__li_checkbox" />
+      <input onClick={()=>this.selectItem()} type="checkbox" className="list__li_checkbox" />
     );
   }
 }
 
-export default SelectItem
+export default SelectItem;

@@ -5,7 +5,7 @@ import SelectItem from "../SelectItem";
 import DestroyLi from "../DestroyLi";
 
 class PatternList extends React.Component {
-  constructor(props, event) {
+  constructor(props) {
     super(props);
     this.handleTodoListEdit = this.handleTodoListEdit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
@@ -14,25 +14,22 @@ class PatternList extends React.Component {
     this.handleKeyUp = this.handleKeyUp.bind(this);
   }
 
-  handleTodoListEdit() {
-    const todoList = this.props.state.todoList;
-    todoList[this.props.index].edit = true;
+  handleTodoListEdit({ index, onUpdateTodoList } = this.props, { todoList } = this.props.state) {
+    todoList[index].edit = true;
     localStorage.setItem('todo', JSON.stringify(todoList));
-    this.props.onEditValue(todoList[this.props.index].todo);
-    this.props.onUpdateTodoList();
+    onUpdateTodoList();
   }
 
-  handleEdit(event) {
-    this.props.onEditValue(event.target.value);
+  handleEdit(event, { onEditValue } = this.props) {
+    onEditValue(event.target.value);
   }
 
-  handleEditSubmit(event) {
+  handleEditSubmit(event, { index, onUpdateTodoList } = this.props, { todoList, iseditvalue } = this.props.state) {
     event.preventDefault();
-    let input = this.props.state.iseditvalue;
-    this.props.state.todoList[this.props.index].todo = input;
-    this.props.state.todoList[this.props.index].edit = false;
-    localStorage.setItem('todo', JSON.stringify(this.props.state.todoList));
-    this.props.onUpdateTodoList();
+    todoList[index].todo = iseditvalue;
+    todoList[index].edit = false;
+    localStorage.setItem('todo', JSON.stringify(todoList));
+    onUpdateTodoList();
   }
 
   handleBlur(event) {
@@ -45,50 +42,50 @@ class PatternList extends React.Component {
     }
   }
 
-  render() {
+  render({ todoList, isall, isactive, iscompleted, iseditvalue } = this.props.state, { index, out,onUpdateTodoList } = this.props) {
 
     return (
-      <li className="list__li" id={this.props.index} >
+      <li className="list__li" id={index} >
 
-        {this.props.state.todoList[this.props.index].edit === false ?
+        {todoList[index].edit === false ?
 
           < div className="flex" >
-            <SelectItem index={this.props.index} state={this.props.state} onUpdateTodoList={this.props.onUpdateTodoList} />
+            <SelectItem index={index} todoList={todoList} onUpdateTodoList={onUpdateTodoList} />
 
-            {(this.props.state.isall === true && this.props.state.todoList[this.props.index].check === true) &&
+            {(isall === true && todoList[index].check === true) &&
               <>
                 <span className="list__li_btn list__span_mod transition-position"></span>
-                <label onDoubleClick={this.handleTodoListEdit} className="list__label list__label_mod transition-color">{this.props.out}</label>
+                <label onDoubleClick={this.handleTodoListEdit} className="list__label list__label_mod transition-color">{out}</label>
               </>
             }
 
-            {(this.props.state.isall === true && this.props.state.todoList[this.props.index].check === false) &&
+            {(isall === true && todoList[index].check === false) &&
               <>
                 <span className="list__li_btn transition-position"></span>
-                <label onDoubleClick={this.handleTodoListEdit} className="list__label transition-color">{this.props.out}</label>
+                <label onDoubleClick={this.handleTodoListEdit} className="list__label transition-color">{out}</label>
               </>
             }
 
-            {this.props.state.isactive === true &&
+            {isactive === true &&
               <>
                 <span className="list__li_btn transition-position"></span>
-                <label onDoubleClick={this.handleTodoListEdit} className="list__label transition-color">{this.props.out}</label>
+                <label onDoubleClick={this.handleTodoListEdit} className="list__label transition-color">{out}</label>
               </>
             }
 
-            {this.props.state.iscompleted === true &&
+            {iscompleted === true &&
               <>
                 <span className="list__li_btn list__span_mod transition-position"></span>
-                <label onDoubleClick={this.handleTodoListEdit} className="list__label list__label_mod transition-color">{this.props.out}</label>
+                <label onDoubleClick={this.handleTodoListEdit} className="list__label list__label_mod transition-color">{out}</label>
               </>
             }
 
             <div className="list__div_destroy transition-position">x</div>
-            <DestroyLi index={this.props.index} state={this.props.state} onUpdateTodoList={this.props.onUpdateTodoList} />
+            <DestroyLi index={index} todoList={todoList} onUpdateTodoList={onUpdateTodoList} />
           </div>
 
           : <input type="text" autoFocus onChange={this.handleEdit} onKeyDownCapture={this.handleKeyUp}
-            onBlurCapture={this.handleBlur} value={this.props.state.iseditvalue} className="edit" />
+            onBlurCapture={this.handleBlur} value={iseditvalue} className="edit" />
         }
 
       </li >
@@ -96,4 +93,4 @@ class PatternList extends React.Component {
   }
 }
 
-export default PatternList
+export default PatternList;

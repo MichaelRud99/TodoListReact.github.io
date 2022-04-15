@@ -1,11 +1,10 @@
 import React from "react";
 import "./PatternList.js";
 import PatternList from "./PatternList";
-import PatternTodoList from "./PatternTodoList";
 
 const OutPatternList = ({ state, onUpdateTodoList, onStateTrue, onEditValue }) => {
 
-    const todoList = PatternTodoList("todo");
+    const todoList = state.todoList;
     const indexTodo = todoList.map(todoList => todoList.todo);
     const filetrCheckTrue = todoList.filter(todoList => todoList.check === true);
     const filetrCheckFalse = todoList.filter(todoList => todoList.check === false);
