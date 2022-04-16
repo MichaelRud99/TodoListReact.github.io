@@ -1,9 +1,7 @@
-import react from "react";
-
-const patternTodoList = (todo) => {
+const patternTodoList = () => {
     let todoList = [];
-    if (JSON.parse(localStorage.getItem(todo)) != undefined) {
-        todoList = JSON.parse(localStorage.getItem(todo));
+    if (JSON.parse(localStorage.getItem("todo")) != undefined) {
+        todoList = JSON.parse(localStorage.getItem("todo"));
     }
     return todoList;
 }

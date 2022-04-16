@@ -1,11 +1,11 @@
 import React from "react";
 import "./TodoApp.css";
-import SelectAll from "../../_js/SelectAll.js";
+import SelectAll from "../../_js/SelectAll";
 import BtnFooter from "../../_js/Btn/BtnFooter";
-import InputFields from "../../_js/InputFields.js";
+import InputFields from "../../_js/InputFields";
 import BtnClearCompleted from "../../_js/Btn/BtnClearCompleted";
 import patternTodoList from "../../_js/PatternList/patternTodoList";
-import OutPatternList from "../../_js/PatternList/OutPatternList.js";
+import OutPatternList from "../../_js/PatternList/OutPatternList";
 
 class TodoApp extends React.Component {
 
@@ -24,7 +24,7 @@ class TodoApp extends React.Component {
         this.state = {
             isall: true, isactive: false, iscompleted: false,
             isvalue: "", iseditvalue: "",
-            todoList: patternTodoList("todo")
+            todoList: patternTodoList()
         }
     }
 

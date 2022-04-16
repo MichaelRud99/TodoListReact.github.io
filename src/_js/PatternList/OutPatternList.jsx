@@ -1,5 +1,5 @@
-import React from "react";
-import "./PatternList.js";
+import React, { Component } from "react";
+import "./PatternList";
 import PatternList from "./PatternList";
 
 const OutPatternList = ({ state, onUpdateTodoList, onStateTrue, onEditValue }) => {
@@ -14,20 +14,20 @@ const OutPatternList = ({ state, onUpdateTodoList, onStateTrue, onEditValue }) =
         <ul id="list" className="list" >
 
             {state.isall === true &&
-                indexTodo.map((value, count) => {
-                    return (<PatternList key={count} index={count} out={value}
+                indexTodo.map((value, index) => {
+                    return (<PatternList key={index} index={index} out={value}
                         state={state} onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
                 })
             }
             {state.isactive === true &&
-                filetrCheckFalse.map((value, count) => {
-                    return (<PatternList key={count} index={count} out={value.todo} state={state}
+                filetrCheckFalse.map((value, index) => {
+                    return (<PatternList key={index} index={index} out={value.todo} state={state}
                         onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
                 })
             }
             {state.iscompleted === true &&
-                filetrCheckTrue.map((value, count) => {
-                    return (<PatternList key={count} index={count} out={value.todo} state={state}
+                filetrCheckTrue.map((value, index) => {
+                    return (<PatternList key={index} index={index} out={value.todo} state={state}
                         onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
                 })
             }
