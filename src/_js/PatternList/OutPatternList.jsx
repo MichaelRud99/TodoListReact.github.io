@@ -1,40 +1,36 @@
-import React, { Component } from "react";
+import React from "react";
 import "./PatternList";
 import PatternList from "./PatternList";
 
-const OutPatternList = ({ state, onUpdateTodoList, onStateTrue, onEditValue }) => {
+const OutPatternList = ({ todoList, all, active, updateTodoList }) => {
 
-    const todoList = state.todoList;
-    const indexTodo = todoList.map(todoList => todoList.todo);
     const filetrCheckTrue = todoList.filter(todoList => todoList.check === true);
     const filetrCheckFalse = todoList.filter(todoList => todoList.check === false);
-
+    
     return (
-
         <ul id="list" className="list" >
 
-            {state.isall === true &&
-                indexTodo.map((value, index) => {
-                    return (<PatternList key={index} index={index} out={value}
-                        state={state} onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
+            {all === true &&
+                todoList.map((value, index) => {
+                    return (<PatternList key={value.id} index={index} out={value.todo}
+                        todoList={todoList} all={all} active={active} updateTodoList={updateTodoList} />)
                 })
             }
-            {state.isactive === true &&
+
+            {active === true &&
                 filetrCheckFalse.map((value, index) => {
-                    return (<PatternList key={index} index={index} out={value.todo} state={state}
-                        onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
+                    return (<PatternList key={value.id} index={index} out={value.todo}
+                        todoList={todoList} all={all} active={active} updateTodoList={updateTodoList} />)
                 })
             }
-            {state.iscompleted === true &&
+            {(all === false && active === false) &&
                 filetrCheckTrue.map((value, index) => {
-                    return (<PatternList key={index} index={index} out={value.todo} state={state}
-                        onUpdateTodoList={onUpdateTodoList} onStateTrue={onStateTrue} onEditValue={onEditValue} />)
+                    return (<PatternList key={value.id} index={index} out={value.todo}
+                        todoList={todoList} all={all} active={active} updateTodoList={updateTodoList} />)
                 })
             }
-
         </ul>
-
     )
 }
 
-export default OutPatternList
+export default OutPatternList;

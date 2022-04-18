@@ -1,13 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import patternTodoList from "./PatternList/patternTodoList";
 
-class SelectAll extends React.Component {
-  constructor(props) {
-    super(props);
-    this.selectAll = this.selectAll.bind(this);
-  }
+const SelectAll = ({ todoList, updateTodoList }) => {
 
-  selectAll({onUpdateTodoList,todoList} = this.props) {
-
+  const selectAll = () => {
     let c = 0;
     c = (todoList.filter(todoList => todoList.check === true)).length;
     if (c === todoList.length) {
@@ -22,15 +18,12 @@ class SelectAll extends React.Component {
     }
     c = 0;
     localStorage.setItem('todo', JSON.stringify(todoList));
-    onUpdateTodoList();
-
+    updateTodoList(patternTodoList());
   }
 
-  render() {
-    return (
-      <input onClick={()=>this.selectAll()} type="checkbox" className="todoapp__select-all" />
-    )
-  }
+  return (
+    <input onClick={selectAll} type="checkbox" className="todoapp__select-all" />
+  )
 }
 
 export default SelectAll;

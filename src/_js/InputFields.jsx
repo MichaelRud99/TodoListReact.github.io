@@ -1,49 +1,39 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
+import patternTodoList from "./PatternList/patternTodoList";
 
-class NameForm extends React.Component {
+const InputFields = ({ todoList, updateTodoList }) => {
 
-  constructor(props) {
-    super(props);
+  let [input, setInput] = useState("");
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
+  const Change = (event) => {
+    setInput(event.target.value);
   }
 
-  handleChange(event) {
-    this.props.onChangeValue(event.target.value);
-  }
-
-  handleSubmit(event,{value,todoList,onSubmit,onUpdateTodoList}=this.props) {
+  const Submit = (event,) => {
     event.preventDefault();
     const re = /[\s]{1}[\s]*$/;
-    let valid = re.test(value);
+    let valid = re.test(input);
 
-    if (value) {
+    if (input) {
       if (valid === false) {
         let tmp = {};
-        tmp.todo = value;
+        tmp.todo = input;
         tmp.check = false;
         tmp.edit = false;
+        tmp.id = Math.random();
         todoList[todoList.length] = tmp;
         localStorage.setItem('todo', JSON.stringify(todoList));
-        onSubmit();
-        onUpdateTodoList();
+        setInput("");
+        updateTodoList(patternTodoList());
       }
     }
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit} className="todoapp__formInput">
-        <input type="text" value={this.props.value} onChange={this.handleChange} placeholder="What needs to be done?" className="todoapp__new-todo" />
-      </form>
-    );
-  }
-
+  return (
+    <form onSubmit={Submit} className="todoapp__formInput">
+      <input type="text" value={input} onChange={Change} placeholder="What needs to be done?" className="todoapp__new-todo" />
+    </form>
+  );
 }
 
-export default NameForm
-
-
-
+export default InputFields;

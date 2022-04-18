@@ -1,38 +1,31 @@
 import React from "react";
+import patternTodoList from "../PatternList/patternTodoList";
 
-class BtnClearCompleted extends React.Component {
-    constructor(props) {
-        super(props);
-        this.btnClearCompleted = this.btnClearCompleted.bind(this);
-    }
+const BtnClearCompleted = ({ todoList, updateTodoList }) => {
 
-    btnClearCompleted() {
-        const todoList = this.props.state.todoList;
+    const tmp = () => {
         const cloneTodList = todoList;
         const searchCheckDone = todoList.filter(todoList => todoList.check === true).length;
 
         if (searchCheckDone === todoList.length) {
             localStorage.removeItem("todo");
-            this.props.onSubmit();
-            return;
-
+            updateTodoList(patternTodoList());
+            return null;
         };
 
-        cloneTodList.forEach((obj, c) => {
+        cloneTodList.forEach((obj,) => {
             let indexCheck = todoList.findIndex(todoList => todoList.check === true);
             if (indexCheck === -1) return;
             todoList.splice(indexCheck, 1);
         })
 
         localStorage.setItem('todo', JSON.stringify(todoList));
-        this.props.onSubmit();
+        updateTodoList(patternTodoList());
     }
 
-    render() {
-        return (
-            <input onClick={this.btnClearCompleted} value="clear completed" type="button" className="todoapp__btn todoapp__btn_clear-completed" />
-        );
-    }
+    return (
+        <input onClick={tmp} value="clear completed" type="button" className="todoapp__btn todoapp__btn_clear-completed" />
+    );
 }
 
 export default BtnClearCompleted;

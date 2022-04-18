@@ -1,4 +1,5 @@
 import React from "react";
+import patternTodoList from "./PatternList/patternTodoList";
 
 class DestroyLi extends React.Component {
     constructor(props) {
@@ -6,17 +7,16 @@ class DestroyLi extends React.Component {
         this.destroyLi = this.destroyLi.bind(this);
     }
 
-    destroyLi({todoList,index,onUpdateTodoList}=this.props) {
+    destroyLi({ todoList, index, updateTodoList } = this.props) {
         todoList.splice(index, 1);
         localStorage.setItem('todo', JSON.stringify(todoList));
-        onUpdateTodoList();
+        updateTodoList(patternTodoList());
     }
 
     render() {
         return (
-            <input type="checkbox" onClick={()=>this.destroyLi()} className="list__destroy"></input>
+            <input type="checkbox" onClick={() => this.destroyLi()} className="list__destroy"></input>
         );
     }
-
 }
 export default DestroyLi;

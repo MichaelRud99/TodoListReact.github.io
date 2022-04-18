@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./TodoApp.css";
 import SelectAll from "../../_js/SelectAll";
 import BtnFooter from "../../_js/Btn/BtnFooter";
@@ -7,89 +7,39 @@ import BtnClearCompleted from "../../_js/Btn/BtnClearCompleted";
 import patternTodoList from "../../_js/PatternList/patternTodoList";
 import OutPatternList from "../../_js/PatternList/OutPatternList";
 
-class TodoApp extends React.Component {
+const TodoApp = () => {
 
-    constructor(props) {
-        super(props);
-        
-        this.handleChangeAll = this.handleChangeAll.bind(this);
-        this.handleChangeActive = this.handleChangeActive.bind(this);
-        this.handleChangeCompleted = this.handleChangeCompleted.bind(this);
-        this.handleStateTrue = this.handleStateTrue.bind(this);
-        this.handleChang = this.handleChang.bind(this);
-        this.handleEdit = this.handleEdit.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleUpdateTodoList = this.handleUpdateTodoList.bind(this);
+    const [todoList, setTodoList] = useState(() => { return patternTodoList() });
+    const [all, setAll] = useState(true);
+    const [active, setActive] = useState(false);
 
-        this.state = {
-            isall: true, isactive: false, iscompleted: false,
-            isvalue: "", iseditvalue: "",
-            todoList: patternTodoList()
-        }
-    }
+    return (
 
-    handleChangeAll = () => {
-        this.setState({ isall: true, isactive: false, iscompleted: false });
-    }
+        <div>
+            <div className="todoapp">
+                <div className="flex todoapp__frame">
+                    {todoList.length > 0 &&
+                        <SelectAll todoList={todoList} updateTodoList={setTodoList} />}
 
-    handleChangeActive() {
-        this.setState({ isall: false, isactive: true, iscompleted: false });
-    }
-
-    handleChangeCompleted = () => {
-        this.setState({ isall: false, isactive: false, iscompleted: true });
-    }
-
-    handleStateTrue = () => {
-        this.setState({ isedit: true });
-    }
-
-    handleChang = (value) => {
-        this.setState({ isvalue: value });
-    }
-
-    handleEdit = (value) => {
-        this.setState({ iseditvalue: value });
-    }
-
-    handleSubmit = () => {
-        this.setState({ isvalue: ""});
-    }
-
-    handleUpdateTodoList = () => {
-        this.setState({todoList: patternTodoList("todo") });
-    }
-
-    render() {
-        return (
-
-            <div>
-                <div className="todoapp">
-                    <div className="flex todoapp__frame">
-
-                        {this.state.todoList.length > 0 &&
-                            <SelectAll todoList={this.state.todoList} onUpdateTodoList={this.handleUpdateTodoList} />}
-
-                        <InputFields value={this.state.isvalue} todoList={this.state.todoList} onChangeValue={this.handleChang} onSubmit={this.handleSubmit} onUpdateTodoList={this.handleUpdateTodoList}/>
-                    </div>
-
-                    <OutPatternList state={this.state} onUpdateTodoList={this.handleUpdateTodoList} onStateTrue={this.handleStateTrue} onEditValue={this.handleEdit} />
-
-                    {this.state.todoList.length > 0 &&
-                        <footer className="flex todoapp__footer">
-
-                            <strong className="strong" value="0" data-counter>{(this.state.todoList.filter(todoList => todoList.check === false)).length} item left  </strong>
-                            <BtnFooter state={this.state} onChangeAll={this.handleChangeAll} onChangeActive={this.handleChangeActive} onChangeCompleted={this.handleChangeCompleted} />
-
-                            {this.state.todoList.filter(todoList => todoList.check === true).length > 0 &&
-                                <BtnClearCompleted state={this.state} onSubmit={this.handleUpdateTodoList} />}
-                        </footer>
-                    }
+                    <InputFields todoList={todoList} updateTodoList={setTodoList} />
                 </div>
-            </div>
 
-        );
-    }
+                <OutPatternList todoList={todoList} updateTodoList={setTodoList} all={all} active={active} />
+
+                {todoList.length > 0 &&
+                    <footer className="flex todoapp__footer">
+
+                        <strong className="strong" value="0" data-counter>{(todoList.filter(todoList => todoList.check === false)).length} item left  </strong>
+                        <BtnFooter all={all} updateAll={setAll} active={active} updateActive={setActive} />
+
+                        {todoList.filter(todoList => todoList.check === true).length > 0 &&
+                            <BtnClearCompleted todoList={todoList} updateTodoList={setTodoList} />}
+                    </footer>
+                }
+            </div>
+        </div>
+
+    );
 }
 
 export default TodoApp
