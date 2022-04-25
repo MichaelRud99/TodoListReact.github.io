@@ -1,5 +1,6 @@
 import React from "react";
 import { readTodoList } from "../../utils";
+import todoApp from "../TodoApp/TodoApp.module.css";
 
 const BtnSelectAll = ({ todoList, updateTodoList }) => {
    const selectAll = () => {
@@ -23,7 +24,7 @@ const BtnSelectAll = ({ todoList, updateTodoList }) => {
       <input
          onClick={selectAll}
          type="checkbox"
-         className="todoapp__select-all"
+         className={todoApp.selectAll}
       />
    );
 };

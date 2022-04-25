@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./PatternList";
 import { PatternList } from "./PatternList";
+import list from "./css/List.module.css";
 
 const OutPatternList = ({ todoList, all, active, updateTodoList }) => {
    const [filetrCheckTrue, setFiletrCheckTrue] = useState(
@@ -20,7 +21,7 @@ const OutPatternList = ({ todoList, all, active, updateTodoList }) => {
    }, [todoList]);
 
    return (
-      <ul id="list" className="list">
+      <ul id="list" className={list.list}>
          {all === true &&
             todoList.map((value, index) => {
                return (

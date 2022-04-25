@@ -1,4 +1,5 @@
 import React from "react";
+import todoApp from "../TodoApp/TodoApp.module.css";
 import { readTodoList } from "../../utils";
 
 const BtnClearCompleted = ({ todoList, updateTodoList }) => {
@@ -31,7 +32,7 @@ const BtnClearCompleted = ({ todoList, updateTodoList }) => {
          onClick={clearCompleted}
          value="clear completed"
          type="button"
-         className="todoapp__btn todoapp__btn_clear-completed"
+         className={todoApp.btn + " " + todoApp.clearCompleted}
       />
    );
 };

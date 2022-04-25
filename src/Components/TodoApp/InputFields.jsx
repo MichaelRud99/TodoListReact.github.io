@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import todoApp from "./TodoApp.module.css";
 import { readTodoList } from "../../utils";
 
 const InputFields = ({ todoList, updateTodoList }) => {
@@ -29,13 +30,13 @@ const InputFields = ({ todoList, updateTodoList }) => {
    };
 
    return (
-      <form onSubmit={Submit} className="todoapp__formInput">
+      <form onSubmit={Submit} className={todoApp.formInput}>
          <input
             type="text"
             value={input}
             onChange={Change}
             placeholder="What needs to be done?"
-            className="todoapp__new-todo"
+            className={todoApp.newTodo}
          />
       </form>
    );

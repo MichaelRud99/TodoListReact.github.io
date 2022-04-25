@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./TodoApp.css";
+import todoApp from "./TodoApp.module.css";
 import { readTodoList } from "../../utils";
 import { OutPatternList } from "../PatternList";
 import { InputFields } from "./index";
@@ -14,8 +14,8 @@ const TodoApp = () => {
 
    return (
       <div>
-         <div className="todoapp">
-            <div className="flex todoapp__frame">
+         <div className={todoApp.todoapp}>
+            <div className={todoApp.frame + " " + todoApp.flex}>
                {todoList.length > 0 && (
                   <BtnSelectAll
                      todoList={todoList}
@@ -33,8 +33,8 @@ const TodoApp = () => {
                active={active}
             />
             {todoList.length > 0 && (
-               <footer className="flex todoapp__footer">
-                  <strong className="strong" value="0" data-counter>
+               <footer className={todoApp.flex}>
+                  <strong className={todoApp.strong} value="0" data-counter>
                      {
                         todoList.filter((todoList) => todoList.check === false)
                            .length

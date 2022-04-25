@@ -6,12 +6,12 @@
     box-shadow: 0 2px 4px 0 var(--todoapp-box-shadow-light), 0 25px 50px 0 var(--todoapp-box-shadow-dark);
 }
 
-.todoapp__frame {
+.frame {
     border: 1px solid var(--grey);
     box-sizing: border-box;
 }
 
-.todoapp__select-all {
+.selectAll {
     text-align: center;
     cursor: pointer;
     width: 40px;
@@ -28,7 +28,7 @@
     transition-timing-function: linear;
 }
 
-.todoapp__select-all::after {
+.selectAll::after {
     margin: 0%;
     padding: 0%;
     text-align: center;
@@ -37,17 +37,17 @@
     content: "v";
 }
 
-.todoapp__select-all:hover {
+.selectAll:hover {
     font-size: 35px;
     font-weight: 700;
     color: var(--btn-footer-click);
 }
 
-.todoapp__formInput {
+.formInput {
     width: 100%;
 }
 
-.todoapp__new-todo {
+.newTodo {
     font-style: italic;
     font-weight: 300;
     font-size: 24px;
@@ -67,17 +67,11 @@
     transition-timing-function: linear;
 }
 
-.todoapp__new-todo:focus {
+.newTodo:focus {
     opacity: 1;
     outline: none;
     color: var(--new--todo-focu);
     background: linear-gradient(to right, var(--white), var(--new-todo-back-focus), var(--btn-footer-click));
-}
-
-.list {
-    list-style-type: none;
-    margin: 0%;
-    padding: 0%;
 }
 
 .strong {
@@ -91,7 +85,7 @@
     margin-right: 90px;
 }
 
-.todoapp__btn {
+.btn {
     cursor: pointer;
     margin: 3px;
     margin-left: auto;
@@ -102,24 +96,30 @@
     border: 1px solid transparent;
 }
 
-.todoapp__btn_clear-completed:hover {
+.clearCompleted:hover {
     text-decoration: underline;
 }
 
-.transition-back-border {
+.transitionBackBorder {
     transition-property: border, background-color;
     transition-duration: 400ms;
     transition-delay: 0s;
     transition-timing-function: linear;
 }
 
-.todoapp__btn_mod {
+.btn_mod {
     color: var(--white);
     background-color: var(--btn-footer-click);
     border: 1px solid var(--btn-footer-border);
 }
 
-.todoapp__btn_hover:hover {
+.btn_hover:hover {
     background-color: var(--btn-footerhover);
     border: 1px solid var(--btn-footer-click);
+}
+
+.flex {
+    display: flex;
+    margin: 0%;
+    padding: 0%;
 }

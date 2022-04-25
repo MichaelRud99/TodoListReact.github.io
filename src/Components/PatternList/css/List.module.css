@@ -1,4 +1,10 @@
-.list__li {
+.list {
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+}
+
+.li {
     display: block;
     cursor: pointer;
     font-size: 25px;
@@ -9,7 +15,7 @@
     border-bottom: 1px solid var(--list-border);
 }
 
-.list__li_checkbox {
+.li_checkbox {
     position: relative;
     opacity: 0;
     cursor: pointer;
@@ -25,14 +31,14 @@
     z-index: 1;
 }
 
-.list__li_btn {
+.li_btn {
     margin-top: auto;
     margin-bottom: auto;
     position: relative;
     left: -20px;
 }
 
-.list__li_btn::before {
+.li_btn::before {
     content: '';
     display: inline-block;
     width: 28px;
@@ -43,12 +49,12 @@
 
 }
 
-.list__label {
+.label {
     width: 100%;
     padding: 15px 0px;
 }
 
-.list__destroy {
+.destroy {
     position: relative;
     opacity: 0;
     cursor: pointer;
@@ -63,7 +69,7 @@
     z-index: 1;
 }
 
-.list__div_destroy {
+.div_destroy {
     visibility: hidden;
     font-weight: bold;
     position: relative;
@@ -76,7 +82,7 @@
     left: 25px;
 }
 
-.list__li:hover .list__div_destroy {
+.li:hover .div_destroy {
     visibility: visible;
     color: var(--black);
     background-color: var(--white);
@@ -86,14 +92,14 @@
 
 
 
-.transition-color {
+.transitionColor {
     transition-property: color;
     transition-duration: 300ms;
     transition-delay: 0s;
     transition-timing-function: linear;
 }
 
-.transition-position {
+.transitionPosition {
     transition-property: background-position;
     transition-duration: 400ms;
     transition-delay: 0s;

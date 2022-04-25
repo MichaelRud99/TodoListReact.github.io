@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import index from "./index.module.css";
 import "./CssVariable.css";
-import "./index.css";
 import { TodoApp } from "./TodoApp";
 import { Aside } from "./Aside";
 import { Footer } from "./Footer";
@@ -9,7 +9,7 @@ import { Header } from "./Header";
 
 ReactDOM.render(
    <React.StrictMode>
-      <section className="flex">
+      <section className={index.flex}>
          <Aside />
          <section>
             <Header />

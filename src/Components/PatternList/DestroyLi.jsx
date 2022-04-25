@@ -1,8 +1,8 @@
 import React from "react";
 import { readTodoList } from "../../utils";
+import list from "./css/List.module.css";
 
 const DestroyLi = ({ todoList, index, updateTodoList }) => {
-
    const destroyLi = (event) => {
       todoList.splice(index, 1);
       localStorage.setItem("todo", JSON.stringify(todoList));
@@ -13,7 +13,7 @@ const DestroyLi = ({ todoList, index, updateTodoList }) => {
       <input
          type="checkbox"
          onClick={destroyLi}
-         className="list__destroy"
+         className={list.destroy}
       ></input>
    );
 };

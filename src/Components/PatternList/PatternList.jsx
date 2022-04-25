@@ -1,8 +1,9 @@
-import "./css/ListMod.css";
-import "./css/PatternList.css";
 import React, { useState } from "react";
 import { readTodoList } from "../../utils";
 import { SelectItem, DestroyLi } from "./index";
+import todoApp from "../TodoApp/TodoApp.module.css";
+import listMod from "./css/ListMod.module.css";
+import list from "./css/List.module.css";
 
 const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
    let [input, setInput] = useState(out);
@@ -36,9 +37,9 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
    };
 
    return (
-      <li className="list__li">
+      <li className={list.li}>
          {todoList[index].edit === false ? (
-            <div className="flex">
+            <div className={todoApp.flex}>
                <SelectItem
                   todoList={todoList}
                   index={index}
@@ -47,10 +48,24 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
 
                {all === true && todoList[index].check === true && (
                   <>
-                     <span className="list__li_btn list__span_mod transition-position"></span>
+                     <span
+                        className={
+                           list.li_btn +
+                           " " +
+                           listMod.span +
+                           " " +
+                           list.transitionPosition
+                        }
+                     ></span>
                      <label
                         onDoubleClick={todoListEdit}
-                        className="list__label list__label_mod transition-color"
+                        className={
+                           list.label +
+                           " " +
+                           listMod.label +
+                           " " +
+                           list.transitionColor
+                        }
                      >
                         {out}
                      </label>
@@ -58,10 +73,12 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
                )}
                {all === true && todoList[index].check === false && (
                   <>
-                     <span className="list__li_btn transition-position"></span>
+                     <span
+                        className={list.li_btn + " " + list.transitionPosition}
+                     ></span>
                      <label
                         onDoubleClick={todoListEdit}
-                        className="list__label transition-color"
+                        className={list.label + " " + list.transitionColor}
                      >
                         {out}
                      </label>
@@ -70,10 +87,12 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
 
                {active === true && (
                   <>
-                     <span className="list__li_btn transition-position"></span>
+                     <span
+                        className={list.li_btn + " " + list.transitionPosition}
+                     ></span>
                      <label
                         onDoubleClick={todoListEdit}
-                        className="list__label transition-color"
+                        className={list.label + " " + list.transitionColor}
                      >
                         {out}
                      </label>
@@ -82,17 +101,35 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
 
                {all === false && active === false && (
                   <>
-                     <span className="list__li_btn list__span_mod transition-position"></span>
+                     <span
+                        className={
+                           list.li_btn +
+                           " " +
+                           listMod.span +
+                           " " +
+                           list.transitionPosition
+                        }
+                     ></span>
                      <label
                         onDoubleClick={todoListEdit}
-                        className="list__label list__label_mod transition-color"
+                        className={
+                           list.label +
+                           " " +
+                           listMod.label +
+                           " " +
+                           list.transitionColor
+                        }
                      >
                         {out}
                      </label>
                   </>
                )}
 
-               <div className="list__div_destroy transition-position">x</div>
+               <div
+                  className={list.div_destroy + " " + list.transitionPosition}
+               >
+                  x
+               </div>
                <DestroyLi
                   todoList={todoList}
                   index={index}
@@ -103,7 +140,7 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
             <input
                type="text"
                autoFocus
-               className="edit"
+               className={list.edit}
                value={input}
                onChange={edit}
                onKeyDownCapture={keyUp}

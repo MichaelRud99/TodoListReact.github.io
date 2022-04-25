@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import todoApp from "../TodoApp/TodoApp.module.css";
 
 const BtnFooter = ({ all, active, updateAll, updateActive }) => {
    const clickAll = () => {
@@ -17,70 +18,124 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
    return (
       <>
          {all === true && (
-            <div className="footer__btn">
+            <div className={todoApp.footer__btn}>
                <input
                   onClick={clickAll}
                   value="All"
                   type="button"
-                  className="todoapp__btn todoapp__btn_mod transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_mod +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
                <input
                   onClick={clickActive}
                   value="Active"
                   type="button"
-                  className="todoapp__btn todoapp__btn_hover transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_hover +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
                <input
                   onClick={clickCompleted}
                   value="Completed"
                   type="button"
-                  className="todoapp__btn todoapp__btn_hover transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_hover +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
             </div>
          )}
 
          {active === true && (
-            <div className="footer__btn">
+            <div className={todoApp.footer__btn}>
                <input
                   onClick={clickAll}
                   value="All"
                   type="button"
-                  className="todoapp__btn todoapp__btn_hover transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_hover +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
                <input
                   onClick={clickActive}
                   value="Active"
                   type="button"
-                  className="todoapp__btn todoapp__btn_mod transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_mod +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
                <input
                   onClick={clickCompleted}
                   value="Completed"
                   type="button"
-                  className="todoapp__btn todoapp__btn_hover transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_hover +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
             </div>
          )}
 
          {all === false && active === false && (
-            <div className="footer__btn">
+            <div className={todoApp.footer__btn}>
                <input
                   onClick={clickAll}
                   value="All"
                   type="button"
-                  className="todoapp__btn todoapp__btn_hover transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_hover +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
                <input
                   onClick={clickActive}
                   value="Active"
                   type="button"
-                  className="todoapp__btn todoapp__btn_hover transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_hover +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
                <input
                   onClick={clickCompleted}
                   value="Completed"
                   type="button"
-                  className="todoapp__btn todoapp__btn_mod transition-back-border"
+                  className={
+                     todoApp.btn +
+                     " " +
+                     todoApp.btn_mod +
+                     " " +
+                     todoApp.transitionBackBorder
+                  }
                />
             </div>
          )}
