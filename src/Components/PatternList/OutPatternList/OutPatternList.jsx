@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./PatternList";
-import { PatternList } from "./PatternList";
-import list from "./css/List.module.css";
+import PatternList from "../PatternList";
+import list from "../css/List.module.css";
 
 const OutPatternList = ({ todoList, all, active, updateTodoList }) => {
    const [filetrCheckTrue, setFiletrCheckTrue] = useState(
@@ -70,4 +69,4 @@ const OutPatternList = ({ todoList, all, active, updateTodoList }) => {
    );
 };
 
-export { OutPatternList };
+export default OutPatternList;

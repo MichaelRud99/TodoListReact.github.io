@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import todoApp from "./TodoApp.module.css";
-import { readTodoList } from "../../utils";
+import todoApp from "../TodoApp.module.css";
+import readTodoList from "../../../utils";
 
 const InputFields = ({ todoList, updateTodoList }) => {
    let [input, setInput] = useState("");
@@ -41,4 +41,4 @@ const InputFields = ({ todoList, updateTodoList }) => {
       </form>
    );
 };
-export { InputFields };
+export default InputFields;

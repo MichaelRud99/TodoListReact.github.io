@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { readTodoList } from "../../utils";
-import { SelectItem, DestroyLi } from "./index";
-import todoApp from "../TodoApp/TodoApp.module.css";
-import listMod from "./css/ListMod.module.css";
-import list from "./css/List.module.css";
+import readTodoList from "../../../utils";
+import SelectItem from "../SelectItem";
+import DestroyLi from "../DestroyLi";
+import todoApp from "../../TodoApp/TodoApp.module.css";
+import listMod from "../css/ListMod.module.css";
+import list from "../css/List.module.css";
 
 const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
    let [input, setInput] = useState(out);
@@ -151,4 +152,4 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
    );
 };
 
-export { PatternList };
+export default PatternList;

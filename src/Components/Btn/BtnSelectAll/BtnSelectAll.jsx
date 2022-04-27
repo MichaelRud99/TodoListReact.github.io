@@ -1,6 +1,6 @@
 import React from "react";
-import { readTodoList } from "../../utils";
-import todoApp from "../TodoApp/TodoApp.module.css";
+import readTodoList from "../../../utils";
+import todoApp from "../../TodoApp/TodoApp.module.css";
 
 const BtnSelectAll = ({ todoList, updateTodoList }) => {
    const selectAll = () => {
@@ -29,4 +29,4 @@ const BtnSelectAll = ({ todoList, updateTodoList }) => {
    );
 };
 
-export { BtnSelectAll };
+export default BtnSelectAll;

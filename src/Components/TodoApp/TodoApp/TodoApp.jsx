@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import todoApp from "./TodoApp.module.css";
-import { readTodoList } from "../../utils";
-import { OutPatternList } from "../PatternList";
-import { InputFields } from "./index";
-import { BtnClearCompleted, BtnFooter, BtnSelectAll } from "../Btn";
+import todoApp from "../TodoApp.module.css";
+import readTodoList from "../../../utils";
+import OutPatternList from "../../PatternList/OutPatternList";
+import InputFields from "../InputFields";
+import BtnClearCompleted from "../../Btn/BtnClearCompleted";
+import BtnFooter from "../../Btn/BtnFooter";
+import BtnSelectAll from "../../Btn/BtnSelectAll";
 
 const TodoApp = () => {
    const [todoList, setTodoList] = useState(() => {
@@ -61,4 +63,4 @@ const TodoApp = () => {
       </div>
    );
 };
-export { TodoApp };
+export default TodoApp;

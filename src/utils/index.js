@@ -1,1 +1,2 @@
-export { readTodoList } from "./readTodoList";
+import readTodoList from "./readTodoList";
+export default readTodoList;

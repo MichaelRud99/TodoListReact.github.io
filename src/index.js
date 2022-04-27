@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import index from "./index.module.css";
-import "./CssVariable.css";
-import { TodoApp } from "./TodoApp";
-import { Aside } from "./Aside";
-import { Footer } from "./Footer";
-import { Header } from "./Header";
+import index from "./Components/index.module.css";
+import "./Components/CssVariable.css";
+import TodoApp from "./Components/TodoApp/TodoApp";
+import Aside from "./Components/Aside";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 
 ReactDOM.render(
    <React.StrictMode>

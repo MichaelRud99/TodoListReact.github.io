@@ -40,4 +40,4 @@ const Aside = () => {
       </aside>
    );
 };
-export { Aside };
+export default Aside;

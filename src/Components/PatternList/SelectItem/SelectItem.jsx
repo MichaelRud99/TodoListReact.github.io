@@ -1,6 +1,6 @@
 import React from "react";
-import { readTodoList } from "../../utils";
-import list from "./css/List.module.css";
+import readTodoList from "../../../utils";
+import list from "../css/List.module.css";
 
 const SelectItem = ({ index, todoList, updateTodoList }) => {
    const selectItem = () => {
@@ -18,4 +18,4 @@ const SelectItem = ({ index, todoList, updateTodoList }) => {
    );
 };
 
-export { SelectItem };
+export default SelectItem;

@@ -5,4 +5,4 @@ const readTodoList = () => {
    }
    return todoList;
 };
-export { readTodoList };
+export default readTodoList;

@@ -1,6 +1,6 @@
 import React from "react";
-import { readTodoList } from "../../utils";
-import list from "./css/List.module.css";
+import readTodoList from "../../../utils";
+import list from "../css/List.module.css";
 
 const DestroyLi = ({ todoList, index, updateTodoList }) => {
    const destroyLi = (event) => {
@@ -17,4 +17,4 @@ const DestroyLi = ({ todoList, index, updateTodoList }) => {
       ></input>
    );
 };
-export { DestroyLi };
+export default DestroyLi;

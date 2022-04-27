@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import todoApp from "../TodoApp/TodoApp.module.css";
+import React from "react";
+import todoApp from "../../TodoApp/TodoApp.module.css";
 
 const BtnFooter = ({ all, active, updateAll, updateActive }) => {
    const clickAll = () => {
@@ -143,4 +143,4 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
    );
 };
 
-export { BtnFooter };
+export default BtnFooter

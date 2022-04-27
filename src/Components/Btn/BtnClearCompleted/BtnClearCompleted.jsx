@@ -1,6 +1,6 @@
 import React from "react";
-import todoApp from "../TodoApp/TodoApp.module.css";
-import { readTodoList } from "../../utils";
+import todoApp from "../../TodoApp/TodoApp.module.css";
+import readTodoList from "../../../utils";
 
 const BtnClearCompleted = ({ todoList, updateTodoList }) => {
    const clearCompleted = () => {
@@ -37,4 +37,4 @@ const BtnClearCompleted = ({ todoList, updateTodoList }) => {
    );
 };
 
-export { BtnClearCompleted };
+export default BtnClearCompleted;
