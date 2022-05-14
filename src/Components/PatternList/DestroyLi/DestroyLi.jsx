@@ -1,5 +1,5 @@
 import React from "react";
-import readTodoList from "../../../utils";
+import readTodoList from "../../../utils/readTodoList";
 import list from "../css/List.module.css";
 
 const DestroyLi = ({ todoList, index, updateTodoList }) => {

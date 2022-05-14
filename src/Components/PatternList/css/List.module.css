@@ -125,3 +125,8 @@
     outline: none;
     border: 2px solid var(--list-edit-focus);
 }
+
+.new {
+    color: yellowgreen;
+    background-color: black;
+}

@@ -1,26 +1,23 @@
 import React from "react";
 import todoApp from "../../TodoApp/TodoApp.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import {
+   btnAll,
+   btnActive,
+   btnCompleted,
+} from "../../../utils/redux/booleanSlice";
 
-const BtnFooter = ({ all, active, updateAll, updateActive }) => {
-   const clickAll = () => {
-      updateAll(true);
-      updateActive(false);
-   };
-   const clickActive = () => {
-      updateAll(false);
-      updateActive(true);
-   };
-   const clickCompleted = () => {
-      updateAll(false);
-      updateActive(false);
-   };
+const BtnFooter = () => {
+   const all = useSelector((state) => state.boolean.all);
+   const active = useSelector((state) => state.boolean.active);
+   const dispatch = useDispatch();
 
    return (
       <>
          {all === true && (
             <div className={todoApp.footer__btn}>
                <input
-                  onClick={clickAll}
+                  onClick={() => dispatch(btnAll())}
                   value="All"
                   type="button"
                   className={
@@ -32,7 +29,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
                   }
                />
                <input
-                  onClick={clickActive}
+                  onClick={() => dispatch(btnActive())}
                   value="Active"
                   type="button"
                   className={
@@ -44,7 +41,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
                   }
                />
                <input
-                  onClick={clickCompleted}
+                  onClick={() => dispatch(btnCompleted())}
                   value="Completed"
                   type="button"
                   className={
@@ -61,7 +58,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
          {active === true && (
             <div className={todoApp.footer__btn}>
                <input
-                  onClick={clickAll}
+                  onClick={() => dispatch(btnAll())}
                   value="All"
                   type="button"
                   className={
@@ -73,7 +70,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
                   }
                />
                <input
-                  onClick={clickActive}
+                  onClick={() => dispatch(btnActive())}
                   value="Active"
                   type="button"
                   className={
@@ -85,7 +82,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
                   }
                />
                <input
-                  onClick={clickCompleted}
+                  onClick={() => dispatch(btnCompleted())}
                   value="Completed"
                   type="button"
                   className={
@@ -102,7 +99,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
          {all === false && active === false && (
             <div className={todoApp.footer__btn}>
                <input
-                  onClick={clickAll}
+                  onClick={() => dispatch(btnAll())}
                   value="All"
                   type="button"
                   className={
@@ -114,7 +111,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
                   }
                />
                <input
-                  onClick={clickActive}
+                  onClick={() => dispatch(btnActive())}
                   value="Active"
                   type="button"
                   className={
@@ -126,7 +123,7 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
                   }
                />
                <input
-                  onClick={clickCompleted}
+                  onClick={() => dispatch(btnCompleted())}
                   value="Completed"
                   type="button"
                   className={
@@ -143,4 +140,4 @@ const BtnFooter = ({ all, active, updateAll, updateActive }) => {
    );
 };
 
-export default BtnFooter
+export default BtnFooter;

@@ -1,5 +1,5 @@
 import React from "react";
-import readTodoList from "../../../utils";
+import readTodoList from "../../../utils/readTodoList";
 import todoApp from "../../TodoApp/TodoApp.module.css";
 
 const BtnSelectAll = ({ todoList, updateTodoList }) => {

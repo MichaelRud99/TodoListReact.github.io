@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import todoApp from "../TodoApp.module.css";
-import readTodoList from "../../../utils";
+import readTodoList from "../../../utils/readTodoList";
 import OutPatternList from "../../PatternList/OutPatternList";
 import InputFields from "../InputFields";
 import BtnClearCompleted from "../../Btn/BtnClearCompleted";
@@ -11,8 +11,6 @@ const TodoApp = () => {
    const [todoList, setTodoList] = useState(() => {
       return readTodoList();
    });
-   const [all, setAll] = useState(true);
-   const [active, setActive] = useState(false);
 
    return (
       <div>
@@ -28,12 +26,7 @@ const TodoApp = () => {
                <InputFields todoList={todoList} updateTodoList={setTodoList} />
             </div>
 
-            <OutPatternList
-               todoList={todoList}
-               updateTodoList={setTodoList}
-               all={all}
-               active={active}
-            />
+            <OutPatternList todoList={todoList} updateTodoList={setTodoList} />
             {todoList.length > 0 && (
                <footer className={todoApp.flex}>
                   <strong className={todoApp.strong} value="0" data-counter>
@@ -43,12 +36,7 @@ const TodoApp = () => {
                      }
                      item left
                   </strong>
-                  <BtnFooter
-                     all={all}
-                     updateAll={setAll}
-                     active={active}
-                     updateActive={setActive}
-                  />
+                  <BtnFooter />
 
                   {todoList.filter((todoList) => todoList.check === true)
                      .length > 0 && (

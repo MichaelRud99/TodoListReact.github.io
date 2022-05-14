@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import readTodoList from "../../../utils";
+import readTodoList from "../../../utils/readTodoList";
 import SelectItem from "../SelectItem";
 import DestroyLi from "../DestroyLi";
 import todoApp from "../../TodoApp/TodoApp.module.css";

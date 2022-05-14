@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import todoApp from "../TodoApp.module.css";
-import readTodoList from "../../../utils";
+import readTodoList from "../../../utils/readTodoList";
+import { useSelector, useDispatch } from "react-redux";
+import { enter, clear } from "../../../utils/redux/inputSlice";
 
 const InputFields = ({ todoList, updateTodoList }) => {
-   let [input, setInput] = useState("");
+   const input = useSelector((state) => state.input.value);
+   const dispatch = useDispatch();
 
    const Change = (event) => {
-      setInput(event.target.value);
+      dispatch(enter(event.target.value));
    };
 
    const Submit = (event) => {
@@ -23,7 +26,7 @@ const InputFields = ({ todoList, updateTodoList }) => {
             tmp.id = Math.random();
             todoList[todoList.length] = tmp;
             localStorage.setItem("todo", JSON.stringify(todoList));
-            setInput("");
+            dispatch(clear());
             updateTodoList(() => readTodoList());
          }
       }

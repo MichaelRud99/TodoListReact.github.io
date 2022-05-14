@@ -6,6 +6,8 @@ import TodoApp from "./Components/TodoApp/TodoApp";
 import Aside from "./Components/Aside";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
+import store from "./utils/redux/store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
    <React.StrictMode>
@@ -13,7 +15,9 @@ ReactDOM.render(
          <Aside />
          <section>
             <Header />
-            <TodoApp />
+            <Provider store={store}>
+               <TodoApp />
+            </Provider>
             <Footer />
          </section>
       </section>

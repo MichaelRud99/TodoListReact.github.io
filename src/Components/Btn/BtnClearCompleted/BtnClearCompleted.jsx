@@ -1,6 +1,6 @@
 import React from "react";
 import todoApp from "../../TodoApp/TodoApp.module.css";
-import readTodoList from "../../../utils";
+import readTodoList from "../../../utils/readTodoList";
 
 const BtnClearCompleted = ({ todoList, updateTodoList }) => {
    const clearCompleted = () => {
