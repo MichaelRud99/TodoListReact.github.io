@@ -2,9 +2,9 @@ import React from "react";
 import todoApp from "../../TodoApp/TodoApp.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
-   btnAll,
-   btnActive,
-   btnCompleted,
+   passAll,
+   passActive,
+   passCompleted,
 } from "../../../utils/redux/booleanSlice";
 
 const BtnFooter = () => {
@@ -17,7 +17,7 @@ const BtnFooter = () => {
          {all === true && (
             <div className={todoApp.footer__btn}>
                <input
-                  onClick={() => dispatch(btnAll())}
+                  onClick={() => dispatch(passAll())}
                   value="All"
                   type="button"
                   className={
@@ -29,7 +29,7 @@ const BtnFooter = () => {
                   }
                />
                <input
-                  onClick={() => dispatch(btnActive())}
+                  onClick={() => dispatch(passActive())}
                   value="Active"
                   type="button"
                   className={
@@ -41,7 +41,7 @@ const BtnFooter = () => {
                   }
                />
                <input
-                  onClick={() => dispatch(btnCompleted())}
+                  onClick={() => dispatch(passCompleted())}
                   value="Completed"
                   type="button"
                   className={
@@ -58,7 +58,7 @@ const BtnFooter = () => {
          {active === true && (
             <div className={todoApp.footer__btn}>
                <input
-                  onClick={() => dispatch(btnAll())}
+                  onClick={() => dispatch(passAll())}
                   value="All"
                   type="button"
                   className={
@@ -70,7 +70,7 @@ const BtnFooter = () => {
                   }
                />
                <input
-                  onClick={() => dispatch(btnActive())}
+                  onClick={() => dispatch(passActive())}
                   value="Active"
                   type="button"
                   className={
@@ -82,7 +82,7 @@ const BtnFooter = () => {
                   }
                />
                <input
-                  onClick={() => dispatch(btnCompleted())}
+                  onClick={() => dispatch(passCompleted())}
                   value="Completed"
                   type="button"
                   className={
@@ -99,7 +99,7 @@ const BtnFooter = () => {
          {all === false && active === false && (
             <div className={todoApp.footer__btn}>
                <input
-                  onClick={() => dispatch(btnAll())}
+                  onClick={() => dispatch(passAll())}
                   value="All"
                   type="button"
                   className={
@@ -111,7 +111,7 @@ const BtnFooter = () => {
                   }
                />
                <input
-                  onClick={() => dispatch(btnActive())}
+                  onClick={() => dispatch(passActive())}
                   value="Active"
                   type="button"
                   className={
@@ -123,7 +123,7 @@ const BtnFooter = () => {
                   }
                />
                <input
-                  onClick={() => dispatch(btnCompleted())}
+                  onClick={() => dispatch(passCompleted())}
                   value="Completed"
                   type="button"
                   className={

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PatternList from "../PatternList";
 import list from "../css/List.module.css";
 import { useSelector } from "react-redux";
@@ -10,8 +10,6 @@ const OutPatternList = ({ todoList, updateTodoList }) => {
    const filetrCheckFalse = todoList.filter(
       (todoList) => todoList.check === false
    );
-
-   /*    console.log(filetrCheckFalse); */
 
    const all = useSelector((state) => state.boolean.all);
    const active = useSelector((state) => state.boolean.active);

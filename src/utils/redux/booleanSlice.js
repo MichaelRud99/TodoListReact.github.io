@@ -4,21 +4,21 @@ export const booleanSlice = createSlice({
    name: "boolean",
    initialState: { all: true, active: false },
    reducers: {
-      btnAll: (state) => {
+      passAll: (state) => {
          state.all = true;
          state.active = false;
       },
-      btnActive: (state) => {
+      passActive: (state) => {
          state.all = false;
          state.active = true;
       },
-      btnCompleted: (state) => {
+      passCompleted: (state) => {
          state.all = false;
          state.active = false;
       },
    },
 });
 
-export const { btnAll, btnActive, btnCompleted } = booleanSlice.actions;
+export const { passAll, passActive, passCompleted } = booleanSlice.actions;
 
 export default booleanSlice.reducer;
