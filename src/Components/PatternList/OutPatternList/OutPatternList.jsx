@@ -4,21 +4,14 @@ import list from "../css/List.module.css";
 import { useSelector } from "react-redux";
 
 const OutPatternList = ({ todoList, updateTodoList }) => {
-   const [filetrCheckTrue, setFiletrCheckTrue] = useState(
-      todoList.filter((todoList) => todoList.check === true)
+   const filetrCheckTrue = todoList.filter(
+      (todoList) => todoList.check === true
    );
-   const [filetrCheckFalse, setFiletrCheckFalse] = useState(
-      todoList.filter((todoList) => todoList.check === false)
+   const filetrCheckFalse = todoList.filter(
+      (todoList) => todoList.check === false
    );
 
-   useEffect(() => {
-      setFiletrCheckFalse(
-         todoList.filter((todoList) => todoList.check === false)
-      );
-      setFiletrCheckTrue(
-         todoList.filter((todoList) => todoList.check === true)
-      );
-   }, [todoList]);
+   /*    console.log(filetrCheckFalse); */
 
    const all = useSelector((state) => state.boolean.all);
    const active = useSelector((state) => state.boolean.active);
@@ -51,6 +44,7 @@ const OutPatternList = ({ todoList, updateTodoList }) => {
                      all={all}
                      active={active}
                      updateTodoList={updateTodoList}
+                     filetrCheckFalse={filetrCheckFalse}
                   />
                );
             })}
@@ -66,6 +60,7 @@ const OutPatternList = ({ todoList, updateTodoList }) => {
                      all={all}
                      active={active}
                      updateTodoList={updateTodoList}
+                     filetrCheckTrue={filetrCheckTrue}
                   />
                );
             })}

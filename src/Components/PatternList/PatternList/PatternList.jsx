@@ -6,7 +6,16 @@ import todoApp from "../../TodoApp/TodoApp.module.css";
 import listMod from "../css/ListMod.module.css";
 import list from "../css/List.module.css";
 
-const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
+const PatternList = ({
+   todoList,
+   index,
+   out,
+   all,
+   active,
+   updateTodoList,
+   filetrCheckFalse,
+   filetrCheckTrue,
+}) => {
    let [input, setInput] = useState(out);
 
    const todoListEdit = () => {
@@ -45,6 +54,10 @@ const PatternList = ({ todoList, index, out, all, active, updateTodoList }) => {
                   todoList={todoList}
                   index={index}
                   updateTodoList={updateTodoList}
+                  filetrCheckFalse={filetrCheckFalse}
+                  filetrCheckTrue={filetrCheckTrue}
+                  all={all}
+                  active={active}
                />
 
                {all === true && todoList[index].check === true && (
