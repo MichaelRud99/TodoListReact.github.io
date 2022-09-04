@@ -5,8 +5,7 @@ const Footer = () => {
    return (
       <footer className="info">
          <p>Double-click to edit a todo</p>
-         <p>Created by Oscar Godson</p>
-         <p>Refactored by Christoph Burgmer</p>
+         <p>Created by Michael</p>
          <p>Part of TodoMVC</p>
       </footer>
    );

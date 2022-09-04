@@ -5,38 +5,41 @@ const Aside = () => {
    return (
       <aside>
          <h1 className="aside__title">JavaScript</h1>
-         <p className="aside__subtitle">
-            Vanilla JavaScript Example
-            <a
-               href="https://github.com/monsegard/monsegard1.github.io"
-               className="link"
-            >
-               Source
-            </a>
-         </p>
          <hr className="aside__hr"></hr>
          <blockquote className="quote speech-bubble">
-            <p className="quote__p italic">
-               JavaScript® (often shortened to JS) is a lightweight,
-               interpreted, object-oriented language with first-class functions,
-               most known as the scripting language for Web pages, but used in
-               many non-browser environments as well such as node. js or Apache
-               CouchDB.
+            <p className="quote__p ">
+               Двум Богам поклоняясь в снах, имена твердить неустанно: Бог
+               Неверия JavaScript и жена его JavaScriptсса. Ёлы-палы, чего опять
+               на стихи потянуло. Ко мне в комнату залетела пчела. Открыл окно в
+               надежде, что она вылетит. Но нет. Теперь у меня есть JavaScript и
+               пчела. 30-летний IT-консультант Брэд Джейакоди (Brad Jayakody)
+               проходил регистрацию в терминале аэропорта, когда один из
+               офицеров службы безопасности отвел его в сторону и попросил
+               показать JavaScript. Просьба офицера поразила пассажира, и он
+               обратился к начальнику службы безопасности в надежде, что тот
+               окажется более разумным. Однако начальник поддержал своего
+               подчиненного и Джейакоди согласился показать JavaScript. Мне –
+               морковное пюре, вам – JavaScript. Где справедливость? Как-то
+               сидели мы с друзьями, пили пиво, обсуждали JavaScript. В
+               результате посиделок решили, что JavaScript на земле становится
+               все меньше и меньше, на всех не хватит. JavaScript. Правда
+               вкусно? JavaScript такая тонкая вещь, чуть нарушишь баланс и
+               последствия-тут как тут. JavaScript это гиперэго или нет? Желание
+               JavaScript или признание JavaScript – это положительные амбиции
+               или напротив? Сам себе еще не ответил на этот вопрос. После всего
+               того, что мы сделали с JavaScript, мы просто обязаны на нем
+               жениться. Если наша планета Земля часть JavaScript, то что же
+               такое JavaScript? В принципе, JavaScript можно заменить обычный
+               монитор, но не факт, что тебя поймут коллеги. А вот «TpircSavaJ»
+               – это JavaScript наоборот.
             </p>
          </blockquote>
          <div>
-            <a
-               href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-               className="link"
-            >
-               JavaScript
+            <a href="http://www.gatchina.biz/generator" className="link">
+               Генератор светских бесед
             </a>
          </div>
          <hr className="aside__hr"></hr>
-         <p className="aside_p italic">
-            If you have other helpful links to share, or find any of the links
-            above no longer work, please let us know.
-         </p>
       </aside>
    );
 };
