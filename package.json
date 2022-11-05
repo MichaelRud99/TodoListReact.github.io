@@ -2,7 +2,7 @@
    "name": "my-app",
    "version": "0.1.0",
    "private": true,
-   "homepage": "https://monsegard.github.io/monsegard2.github.io/",
+   "homepage": "https://michaelrud99.github.io/TodoListReact.github.io/",
    "relative path": "./src/Components",
    "dependencies": {
       "@reduxjs/toolkit": "^1.8.1",
